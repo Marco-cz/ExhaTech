@@ -299,10 +299,17 @@ p  { margin: 0 0 1em; color: var(--ink-soft); }
 
 /* ----------- Services ----------- */
 .services { background: var(--ivory-soft); }
+/* Yurguen: mobile-first — 1 / 2 / 4 cols; 4 en fila solo con ancho cómodo */
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 24px;
+}
+@media (min-width: 720px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1100px) {
+  .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 .card {
   background: var(--white);
@@ -543,7 +550,6 @@ p  { margin: 0 0 1em; color: var(--ink-soft); }
   .hero-art img { max-width: 380px; }
   .grid-2 { grid-template-columns: 1fr; gap: 40px; }
   .grid-2.reverse > div:first-child { order: 0; }
-  .cards { grid-template-columns: repeat(2, 1fr); }
   .about-cards { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr; gap: 36px; }
@@ -576,7 +582,6 @@ p  { margin: 0 0 1em; color: var(--ink-soft); }
   .nav-links a:not(.nav-cta)::after { display: none; }
   .nav-cta { text-align: center; margin-top: 6px; }
 
-  .cards { grid-template-columns: 1fr; }
   .about-cards { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .footer-cols { grid-template-columns: repeat(2, 1fr); }
